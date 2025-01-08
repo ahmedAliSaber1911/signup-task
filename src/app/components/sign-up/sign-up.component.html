@@ -1,0 +1,208 @@
+<div class="signUp-container">
+  <div class="content">
+    <div class="title">Learn to code by watching others</div>
+    <div class="brief">
+      see how experienced developers solve problems in real-time. watching
+      scripted tutorials in great. but understanding how developers think in
+      invaluable
+    </div>
+  </div>
+  <div class="form-container">
+    <div class="title">
+      Try it free 7 Days <span class="pay"> then $20/mo. therafter </span>
+    </div>
+    <form (submit)="signup()" [formGroup]="signupForm">
+      <div class="input-field">
+        <input
+          type="text"
+          formControlName="firstName"
+          placeholder="First Name"
+          [class.error]="
+            signupForm.get('firstName')?.touched &&
+            signupForm.get('firstName')?.invalid
+          "
+        />
+        <div
+          *ngIf="
+            signupForm.get('firstName')?.touched &&
+            signupForm.get('firstName')?.invalid
+          "
+          class="error-message"
+        >
+          First Name cannot be empty
+        </div>
+        <img
+          *ngIf="
+            signupForm.get('firstName')?.touched &&
+            signupForm.get('firstName')?.invalid
+          "
+          src="assets/images/icon-error.svg"
+          class="error-icon"
+          alt=""
+        />
+      </div>
+      <div class="input-field">
+        <input
+          formControlName="lastName"
+          type="text"
+          placeholder="Last Name"
+          [class.error]="
+            signupForm.get('lastName')?.touched &&
+            signupForm.get('lastName')?.invalid
+          "
+        />
+        <div
+          *ngIf="
+            signupForm.get('lastName')?.touched &&
+            signupForm.get('lastName')?.invalid
+          "
+          class="error-message"
+        >
+          Last Name cannot be empty
+        </div>
+        <img
+          *ngIf="
+            signupForm.get('lastName')?.touched &&
+            signupForm.get('lastName')?.invalid
+          "
+          src="assets/images/icon-error.svg"
+          class="error-icon"
+          alt=""
+        />
+      </div>
+      <div class="input-field">
+        <input
+          formControlName="email"
+          type="email"
+          placeholder="Email Address"
+          [class.error]="
+            signupForm.get('email')?.touched && signupForm.get('email')?.invalid
+          "
+        />
+        <div
+          *ngIf="
+            signupForm.get('email')?.touched &&
+            signupForm.get('email')?.hasError('required')
+          "
+          class="error-message"
+        >
+          Email cannot be empty
+        </div>
+        <div
+          *ngIf="
+            signupForm.get('email')?.touched &&
+            signupForm.get('email')?.hasError('email')
+          "
+          class="error-message"
+        >
+          Looks like this is not an email
+        </div>
+        <div *ngIf="emailError" class="error-message">
+          The entered email already exist
+        </div>
+        <img
+          *ngIf="
+            signupForm.get('email')?.touched && signupForm.get('email')?.invalid
+          "
+          src="assets/images/icon-error.svg"
+          class="error-icon"
+          alt=""
+        />
+      </div>
+
+      <div class="input-field">
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          [class.error]="
+            signupForm.get('password')?.touched &&
+            signupForm.get('password')?.invalid
+          "
+        />
+        <div
+          *ngIf="
+            signupForm.get('password')?.touched &&
+            signupForm.get('password')?.hasError('required')
+          "
+          class="error-message"
+        >
+          Password cannot be empty
+        </div>
+        <div
+          *ngIf="
+            signupForm.get('password')?.touched &&
+            signupForm.get('password')?.hasError('minlength')
+          "
+          class="error-message"
+        >
+          The password should be at least 8 characters
+        </div>
+        <img
+          *ngIf="
+            signupForm.get('password')?.touched &&
+            signupForm.get('password')?.invalid
+          "
+          src="assets/images/icon-error.svg"
+          class="error-icon"
+          alt=""
+        />
+      </div>
+      <div class="input-field">
+        <input
+          formControlName="confirmPassword"
+          type="password"
+          placeholder="Confirm Password"
+          [class.error]="
+            signupForm.get('confirmPassword')?.touched &&
+            signupForm.get('confirmPassword')?.invalid
+          "
+        />
+        <div
+          *ngIf="
+            signupForm.get('confirmPassword')?.touched &&
+            signupForm.get('confirmPassword')?.hasError('required')
+          "
+          class="error-message"
+        >
+          Confirm Password cannot be empty
+        </div>
+        <div
+          *ngIf="
+            signupForm.get('confirmPassword')?.touched &&
+            signupForm.hasError('passwordMismatch')
+          "
+          class="error-message"
+        >
+          The Confirm Password doesn't match
+        </div>
+        <div
+          *ngIf="
+            signupForm.get('confirmPassword')?.touched &&
+            signupForm.get('confirmPassword')?.hasError('minlength')
+          "
+          class="error-message"
+        >
+          The Confirm Password should be at least 8 characters
+        </div>
+        <img
+          *ngIf="
+            signupForm.get('confirmPassword')?.touched &&
+            (signupForm.get('confirmPassword')?.invalid ||
+              signupForm.hasError('passwordMismatch'))
+          "
+          src="assets/images/icon-error.svg"
+          class="error-icon"
+          alt=""
+        />
+      </div>
+      <button [disabled]="signupForm.invalid" class="claim-btn">
+        {{ "claim your free trial" | uppercase }}
+      </button>
+      <div class="terms">
+        By clicking the button, you are agreeing to our
+        <span class="red-terms">Terms and Services</span>
+      </div>
+    </form>
+  </div>
+</div>

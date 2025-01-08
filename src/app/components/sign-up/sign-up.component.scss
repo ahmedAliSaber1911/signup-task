@@ -1,0 +1,215 @@
+@import "colors";
+.signUp-container {
+  width: 100%;
+  height: 100vh;
+  background-color: $Red;
+  // background-color:  hsl(0, 100%, 74%) ;
+  background-image: url(/assets/images/bg-intro-desktop.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  .content {
+    width: 50%;
+    padding-left:  10%;
+    text-align: center;
+    .title{
+      font-size: 4rem;
+      color: white;
+      font-weight: 700;
+      line-height: 4rem;
+      margin-bottom: 20px;
+      text-align: start;
+    }
+    .brief{
+      font-size: 1.4rem;
+      color: white;
+      font-weight: 400;
+      line-height: 2rem;
+      text-align: start;
+    }
+  }
+
+  //----------- Form Container-----------
+  .form-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+    .title {
+      height: 50px;
+      width: 60%;
+      border-radius: 8px;
+      background-color: $Blue;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0px 6px 10px $Dark-Blue;
+      .pay{
+        font-weight: 300;
+        margin-left: 5px;
+      }
+    }
+    form{
+      width: 60%;
+      background-color: white;
+      padding: 25px;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      .input-field{
+        position: relative;
+        input{
+          width: 100%;
+          height: 50px;
+          border-radius: 4px;
+          font-size: 1rem;
+          border: 1px solid $Grayish-Blue;
+          padding-left: 20px;
+          ::placeholder {
+            font-size: 1rem ;
+            color: $Dark-Blue ;
+          }
+        }
+        .error-message{
+          text-align: end;
+          color: red;
+          font-style: italic;
+          font-size: .8rem;
+        }
+        .error{
+          border-color: red;
+        }
+        .error-icon{
+          position: absolute;
+          width: 25px;
+          height: 25px;
+          right: 20px;
+          top: 12px;
+          z-index: 10;
+        }
+      }
+      .claim-btn{
+        height: 50px;
+        background-color: $Green;
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 4px;
+        letter-spacing: 1px;
+        &:disabled{
+          opacity: .8;
+          cursor: not-allowed;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .terms{
+        color: $Grayish-Blue;
+        font-size: .8rem;
+        font-weight: 400;
+        text-align: center;
+        .red-terms{
+          color: red;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width : 600px) {
+  .signUp-container {
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 50px 10px;
+    height: fit-content;
+    .content {
+      width: 90%;
+      padding-left:  0;
+      .title{
+        font-size: 2.3rem;
+        line-height: 2.3rem;
+        text-align: center;
+      }
+      .brief{
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-align: center;
+      }
+    }
+
+    //----------- Form Container-----------
+    .form-container {
+      width: 100%;
+      padding: 10px;
+      .title {
+        height: 80px;
+        width: 100%;
+        padding: 0 50px;
+        font-size: 1rem;
+        .pay{
+          display: inline;
+          font-weight: 300;
+          margin-left: 5px;
+        }
+      }
+      form{
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (min-width: 601px) and (max-width : 900px) {
+  .signUp-container {
+    padding: 50px 20px;
+    height: fit-content;
+    .content {
+      padding-left:  0;
+      .title{
+        font-size: 2.3rem;
+        line-height: 2.3rem;
+        text-align: center;
+      }
+      .brief{
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-align: center;
+      }
+    }
+
+    //----------- Form Container-----------
+    .form-container {
+      padding: 10px;
+      .title {
+        height: 80px;
+        width: 100%;
+        padding: 0 50px;
+        font-size: 1rem;
+        .pay{
+          display: inline;
+          font-weight: 300;
+          margin-left: 5px;
+        }
+      }
+      form{
+        width: 100%;
+      }
+    }
+  }
+
+}
